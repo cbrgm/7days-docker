@@ -1,4 +1,4 @@
-ngs>
+<ServerSettings>
 <property name="ServerPort" value="26900"/>
 <!-- Port you want the server to listen on. -->
 <property name="ServerIsPublic" value="true"/>
