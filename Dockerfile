@@ -22,8 +22,8 @@ RUN mkdir ./bin && tar -zxf steamcmd_linux.tar.gz -C ./bin
 RUN mkdir -p /home/steam/server
 WORKDIR /home/steam/server
 RUN /home/steam/bin/steamcmd.sh \
-	+login anonymous \
 	+force_install_dir /home/steam/server \
+	+login anonymous \
 	+app_update 294420 \
 	+quit
 
