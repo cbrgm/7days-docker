@@ -39,6 +39,5 @@ EXPOSE 26900-26902 26900-26902/udp
 CMD export LD_LIBRARY_PATH=/home/steam/server && \
     /home/steam/server/7DaysToDieServer.x86_64 \
 	-configfile=/home/steam/server/serverconfig.xml \
-	-logfile /home/steam/server/output.log \
 	-quit -batchmode -nographics -dedicated $@
 
