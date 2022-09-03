@@ -1,4 +1,4 @@
-FROM ubuntu:latest
+FROM ubuntu:20.04
 MAINTAINER chris@cbrgm.de
 
 # Install dependencies
@@ -15,15 +15,15 @@ WORKDIR /home/steam
 USER steam
 
 # Downloading Steam cmd
-RUN wget http://media.steampowered.com/installer/steamcmd_linux.tar.gz
+RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 RUN mkdir ./bin && tar -zxf steamcmd_linux.tar.gz -C ./bin
 
 # Downloading 7Days Server
 RUN mkdir -p /home/steam/server
 WORKDIR /home/steam/server
 RUN /home/steam/bin/steamcmd.sh \
-	+login anonymous \
 	+force_install_dir /home/steam/server \
+	+login anonymous \
 	+app_update 294420 \
 	+quit
 
@@ -39,6 +39,5 @@ EXPOSE 26900-26902 26900-26902/udp
 CMD export LD_LIBRARY_PATH=/home/steam/server && \
     /home/steam/server/7DaysToDieServer.x86_64 \
 	-configfile=/home/steam/server/serverconfig.xml \
-	-logfile /home/steam/server/output.log \
 	-quit -batchmode -nographics -dedicated $@
 
