@@ -15,7 +15,7 @@ WORKDIR /home/steam
 USER steam
 
 # Downloading Steam cmd
-RUN wget http://media.steampowered.com/installer/steamcmd_linux.tar.gz
+RUN wget https://steamcdn-a.akamaihd.net/client/installer/steamcmd_linux.tar.gz
 RUN mkdir ./bin && tar -zxf steamcmd_linux.tar.gz -C ./bin
 
 # Downloading 7Days Server
