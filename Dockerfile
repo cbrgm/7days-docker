@@ -1,5 +1,4 @@
 FROM ubuntu:20.04
-MAINTAINER chris@cbrgm.de
 
 # Install dependencies
 RUN dpkg --add-architecture i386 && apt-get update && apt-get install -q -y wget lib32gcc1 telnet
@@ -8,7 +7,7 @@ RUN dpkg --add-architecture i386 && apt-get update && apt-get install -q -y wget
 ARG UID=999
 ARG GID=999
 RUN groupadd -g $GID steam && \
-    useradd -m -u $UID -g steam steam
+	useradd -m -u $UID -g steam steam
 
 # Create workspace for server
 WORKDIR /home/steam
@@ -37,7 +36,7 @@ EXPOSE 26900-26902 26900-26902/udp
 
 # Starting server on docker start
 CMD export LD_LIBRARY_PATH=/home/steam/server && \
-    /home/steam/server/7DaysToDieServer.x86_64 \
+	/home/steam/server/7DaysToDieServer.x86_64 \
 	-configfile=/home/steam/server/serverconfig.xml \
 	-quit -batchmode -nographics -dedicated $@
 
